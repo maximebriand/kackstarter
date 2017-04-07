@@ -2,6 +2,10 @@
 
 <ul>
     {% for project in projects %}
-        <li>{{ project }}</li>
+        <li>
+            <strong>{{ project.name }}</strong>
+            <p>{{ project.description }}</p>
+            <em>{{ project.targetAmount }}</em>
+        </li>
     {% endfor %}
 </ul>

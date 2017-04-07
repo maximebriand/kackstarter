@@ -9,6 +9,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\Project;
 
 class ProjectsController extends Controller
 {
@@ -17,13 +18,10 @@ class ProjectsController extends Controller
      */
     public function indexAction()
     {
-        $projects = array(
-            'Portfolio',
-            'Blog',
-            'Forum',
-            'Est il fidele',
-            'Plateform tipseur'
-        );
+       $em = $this->getDoctrine()->getRepository('AppBundle:Project');
+
+       $projects = $em->findAll();
+
 
         return $this->render('projects/index.html.twig', compact('projects'));
     }
